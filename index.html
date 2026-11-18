@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гастрономия</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body class="dark-theme">
+  <div class="app-container">
+    <header>
+      <h1>Гастрономия</h1>
+      <button id="theme-toggle">🌙</button>
+    </header>
+
+    <main>
+      <section id="tab-main" class="tab-content active">
+        <div class="bento-grid">
+          <div class="card card-wide" style="background: linear-gradient(90deg, rgba(20,18,16,0.92) 0%, rgba(20,18,16,0.6) 60%, rgba(20,18,16,0.3) 100%), url('img/combo.jpg') center/cover no-repeat;">
+            <div class="card-content">
+              <span class="badge">🔥 Хит</span>
+              <h2>Комбо дня со скидкой -25%</h2>
+              <p>2 пиццы 30 см + ролл Филадельфия + 2 напитка</p>
+              <div class="price">
+                <span class="old-price">1 590 ₽</span>
+                <span class="new-price">1 190 ₽</span>
+              </div>
+              <button class="add-to-cart" data-price="1190">В корзину</button>
+            </div>
+          </div>
+          <div class="card" style="background: linear-gradient(180deg, rgba(20,18,16,0.82) 0%, rgba(20,18,16,0.4) 50%, rgba(20,18,16,0.88) 100%), url('img/pepperoni.jpg') center/cover no-repeat;">
+            <div class="card-content">
+              <h2>Пицца и Бургеры</h2>
+              <button class="view-menu" data-filter="pizza">Смотреть меню →</button>
+            </div>
+          </div>
+          <div class="card" style="background: linear-gradient(180deg, rgba(20,18,16,0.82) 0%, rgba(20,18,16,0.4) 50%, rgba(20,18,16,0.88) 100%), url('img/philadelphia.jpg') center/cover no-repeat;">
+            <div class="card-content">
+              <h2>Роллы и Вок</h2>
+              <button class="view-menu" data-filter="rolls">Смотреть меню →</button>
+            </div>
+          </div>
+          <div class="card" style="background: linear-gradient(180deg, rgba(20,18,16,0.82) 0%, rgba(20,18,16,0.45) 50%, rgba(20,18,16,0.88) 100%), url('img/repeat.png') center/cover no-repeat !important;">
+            <div class="card-content">
+              <h2>Повторить прошлый заказ</h2>
+              <button class="one-click">В 1 клик</button>
+            </div>
+          </div>
+          <div class="card" style="background: linear-gradient(180deg, rgba(20,18,16,0.82) 0%, rgba(20,18,16,0.45) 50%, rgba(20,18,16,0.88) 100%), url('img/bonus.png') center/cover no-repeat !important;">
+            <div class="card-content">
+              <h2>Ваши бонусы: <span id="main-bonus">350</span> B</h2>
+              <p>1 бонус = 1 ₽</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-menu" class="tab-content">
+        <div class="filters">
+          <button class="filter active" data-filter="all">Все</button>
+          <button class="filter" data-filter="pizza">Пицца</button>
+          <button class="filter" data-filter="rolls">Роллы</button>
+          <button class="filter" data-filter="drinks">Напитки</button>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item" data-category="pizza">
+            <div class="dish-visual pizza-pepperoni">
+              <img class="dish-img" src="img/pepperoni.jpg" alt="Пицца Пепперони" loading="lazy" style="object-fit: cover; width: 100%; height: 115px; border-radius: 12px;">
+            </div>
+            <h3>Пицца Пепперони</h3>
+            <p>450 ₽</p>
+            <button class="add-to-cart" data-price="450">+</button>
+          </div>
+          <div class="menu-item" data-category="pizza">
+            <div class="dish-visual pizza-margherita">
+              <img class="dish-img" src="img/margarita.jpg" alt="Пицца Маргарита" loading="lazy" style="object-fit: cover; width: 100%; height: 115px; border-radius: 12px;">
+            </div>
+            <h3>Пицца Маргарита</h3>
+            <p>390 ₽</p>
+            <button class="add-to-cart" data-price="390">+</button>
+          </div>
+          <div class="menu-item" data-category="rolls">
+            <div class="dish-visual roll-philadelphia">
+              <img class="dish-img" src="img/philadelphia.jpg" alt="Ролл Филадельфия" loading="lazy" style="object-fit: cover; width: 100%; height: 115px; border-radius: 12px;">
+            </div>
+            <h3>Ролл Филадельфия</h3>
+            <p>390 ₽</p>
+            <button class="add-to-cart" data-price="390">+</button>
+          </div>
+          <div class="menu-item" data-category="rolls">
+            <div class="dish-visual roll-california">
+              <img class="dish-img" src="img/california.jpg" alt="Ролл Калифорния" loading="lazy" style="object-fit: cover; width: 100%; height: 115px; border-radius: 12px;">
+            </div>
+            <h3>Ролл Калифорния</h3>
+            <p>350 ₽</p>
+            <button class="add-to-cart" data-price="350">+</button>
+          </div>
+          <div class="menu-item" data-category="drinks">
+            <div class="dish-visual drink-cola">
+              <img class="dish-img" src="img/cola.jpg" alt="Coca-Cola" loading="lazy" style="object-fit: cover; width: 100%; height: 115px; border-radius: 12px;">
+            </div>
+            <h3>Coca-Cola</h3>
+            <p>120 ₽</p>
+            <button class="add-to-cart" data-price="120">+</button>
+          </div>
+          <div class="menu-item" data-category="drinks">
+            <div class="dish-visual drink-mango">
+              <img class="dish-img" src="img/mango.jpg" alt="Лимонад Манго" loading="lazy" style="object-fit: cover; width: 100%; height: 115px; border-radius: 12px;">
+            </div>
+            <h3>Лимонад Манго</h3>
+            <p>180 ₽</p>
+            <button class="add-to-cart" data-price="180">+</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-cart" class="tab-content">
+        <div class="cart-items"></div>
+        <div class="cart-summary">
+          <div class="delivery-option">
+            <label><input type="radio" name="delivery" checked> Доставка</label>
+            <label><input type="radio" name="delivery"> Самовывоз</label>
+          </div>
+          <div class="address">
+            <input type="text" placeholder="Адрес доставки">
+          </div>
+          <div class="bonus">
+            <label><input type="checkbox" id="use-bonus"> Использовать бонусы</label>
+          </div>
+          <div class="total-summary">
+            <p>Итого к оплате: <span id="total-amount">0</span> ₽</p>
+          </div>
+          <button class="checkout">Оформить заказ</button>
+        </div>
+      </section>
+
+      <section id="tab-profile" class="tab-content">
+        <div class="profile-info">
+          <h2 id="profile-name">Имя профиля</h2>
+          <p>Ваши бонусы: <span id="bonus-balance">350</span> B</p>
+          <button id="reset-bonus">Сбросить демо-данные</button>
+        </div>
+        <div class="order-history">
+          <h3>История заказов</h3>
+          <div class="orders"></div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-tab="tab-main">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>Главная</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-menu">
+        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        <span>Меню</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-cart">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <span>Корзина</span>
+        <span class="cart-badge">0</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-profile">
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <span>Профиль</span>
+      </button>
+    </nav>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
